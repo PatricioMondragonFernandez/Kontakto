@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <item type="id" name="face" />
+    <item type="id" name="ig" />
+    <item type="id" name="twitter" />
+    <item type="id" name="link" />
+
+</resources>

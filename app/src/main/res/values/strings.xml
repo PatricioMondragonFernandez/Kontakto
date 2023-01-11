@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Kontakto2</string>
+    <string name="comparte">COMPARTE TU KONTAKTO</string>
+    <string name="Enombre">EDITA TU NOMBRE</string>
+    <string name="EPuesto">Edita tu Puesto</string>
+    <string name="red">Añade una red social</string>
+    <string name="logo">Tu logo aquí</string>
+    <string name="colorTexto">Elije el color del texto</string>
+    <string name="editatuinformacio">Edita tu información</string>
+    <string name="acerca">ACERCA DE:</string>
+    <string name="descripcion">Añade una descripcion de tu empresa</string>
+    <string name="ingresapuesto">Ingresa tu puesto</string>
+    <string name="seleccionared">Selecciona la red social a agregar</string>
+    <string name="Twitter">Twitter</string>
+    <string name="ig">Instagram</string>
+    <string name="face">Facebook</string>
+    <string name="Link">LinkedIn</string>
+    <string name="RedSocial">redsocial</string>
+    <string name="guardadTajeta">Guardar Tarjeta</string>
+    <string name="cambiarColor">Cambiar Color del texto</string>
+    <string name="eligeImagen">Elige una imagen</string>
+    <string name="eligeColores">Elige una combinación de colores</string>
+    <string name="aniadecertificacion">PREMIOS Y CERTIFICACIONES</string>
+    <string name="quitarcert">¿Quitar Certificaciones?</string>
+    <string name="guardarTarjeta">Guardar Tarjeta</string>
+
+</resources>

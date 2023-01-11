@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="top"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.60" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.30" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:foregroundGravity="top"
+        android:background="@drawable/estilo_nombre_c"
+        app:layout_constraintEnd_toEndOf="@id/guideline22"
+        app:layout_constraintStart_toStartOf="@id/guideline21"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/ingresaRedTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Elige una red social"
+            android:gravity="center"
+            android:autoSizeTextType="uniform"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="20dp"
+            android:textSize="25sp"/>
+        
+        <ImageView
+            android:id="@+id/btnface"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/face"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ingresaRedTv"
+            app:layout_constraintEnd_toStartOf="@+id/btnig"
+            android:layout_marginTop="10dp"/>
+
+        <ImageView
+            android:id="@+id/btnig"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/ig"
+            app:layout_constraintStart_toEndOf="@+id/btnface"
+            app:layout_constraintEnd_toStartOf="@id/btntwitter"
+            app:layout_constraintTop_toBottomOf="@+id/ingresaRedTv"
+            android:layout_marginTop="10dp"/>
+        <ImageView
+            android:id="@+id/btntwitter"
+            android:layout_width="60dp"
+            android:src="@drawable/twitter"
+            android:layout_height="60dp"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toStartOf="@+id/btnlinkedin"
+            app:layout_constraintStart_toEndOf="@+id/btnig"
+            app:layout_constraintTop_toBottomOf="@+id/ingresaRedTv"
+            android:layout_marginTop="10dp"
+            android:contentDescription="twitter" />
+
+        <ImageView
+            android:id="@+id/btnlinkedin"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/linkedin"
+            app:layout_constraintStart_toEndOf="@+id/btntwitter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ingresaRedTv"
+            android:layout_marginTop="10dp"/>
+        <TextView
+            android:id="@+id/redTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btntwitter"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/usuarioTil"
+            android:visibility="gone"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColorHint="@color/white"
+            app:boxBackgroundColor="#94999999"
+            app:boxCornerRadiusBottomEnd="30dp"
+            app:boxCornerRadiusBottomStart="30dp"
+            app:boxCornerRadiusTopEnd="30dp"
+            app:boxCornerRadiusTopStart="30dp"
+            app:boxStrokeColor="@color/white"
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="15dp"
+            app:boxStrokeWidth="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/redTv"
+            app:boxStrokeWidthFocused="0dp">
+            <!--app:hintTextAppearance="@style/estilosTIL"-->
+
+            <EditText
+                android:id="@+id/Et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Usuario"
+                android:inputType="textEmailAddress"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/guardarred"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="GUARDAR"
+            android:layout_marginTop="10dp"
+            app:layout_goneMarginBottom="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/usuarioTil"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline27"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline28"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline29"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

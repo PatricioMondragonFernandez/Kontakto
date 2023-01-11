@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/OMEN/Kontacto2/app/src/main/res/drawable/aniade.xml" value="0.1505" />
+        <entry key="..\:/Users/OMEN/Kontacto2/app/src/main/res/drawable/estilo_image_view.xml" value="0.1575" />
+        <entry key="..\:/Users/OMEN/Kontacto2/app/src/main/res/drawable/estilo_nombre_c.xml" value="0.1505" />
+        <entry key="..\:/Users/OMEN/Kontacto2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1505" />
+        <entry key="..\:/Users/OMEN/Kontacto2/app/src/main/res/layout/activity_disenio_tarjeta.xml" value="0.25" />
+        <entry key="..\:/Users/OMEN/Kontacto2/app/src/main/res/layout/activity_main.xml" value="0.2359375" />
+        <entry key="..\:/Users/OMEN/Kontacto2/app/src/main/res/layout/dialog_descripcion_empresa.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/OMEN/Kontacto2/app/src/main/res/layout/dialog_foto_fondo.xml" value="0.25" />
+        <entry key="..\:/Users/OMEN/Kontacto2/app/src/main/res/layout/dialog_nombre.xml" value="0.25" />
+        <entry key="..\:/Users/OMEN/Kontacto2/app/src/main/res/layout/dialog_puesto.xml" value="0.25" />
+        <entry key="..\:/Users/OMEN/Kontacto2/app/src/main/res/layout/dialog_redes.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/OMEN/Kontacto2/app/src/main/res/layout/item_imagen.xml" value="0.1875" />
+        <entry key="..\:/Users/OMEN/Kontacto2/app/src/main/res/layout/layout_redes.xml" value="0.24895833333333334" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
