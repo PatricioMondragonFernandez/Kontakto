@@ -37,7 +37,7 @@ class DisenioTarjeta : AppCompatActivity() {
     private lateinit var binding: ActivityDisenioTarjetaBinding
     var red: Int = 0
     var numRdes = 0
-    var redes = arrayOf<String>("0", "0","0","0")
+    var redes = arrayOf<String>("0","0","0","0","0","0")
     var certificaciones = mutableListOf<String>("null")
     var listaColores = mutableListOf<colores>()
     var listaImagenes = mutableListOf<imagenes>()
@@ -106,7 +106,6 @@ class DisenioTarjeta : AppCompatActivity() {
             pickMedia.launch(PickVisualMediaRequest(PickVisualMedia.ImageOnly))
 
         }
-
         //LLamada para recibir los colores
         llamadaApi()
         //Llamada para recibir las imagenes de fondo
@@ -194,6 +193,8 @@ class DisenioTarjeta : AppCompatActivity() {
             val ig = view.findViewById<ImageView>(R.id.btnig)
             val twitter = view.findViewById<ImageView>(R.id.btntwitter)
             val linkedin = view.findViewById<ImageView>(R.id.btnlinkedin)
+            val site = view.findViewById<ImageView>(R.id.btnSite)
+            val linkedinC = view.findViewById<ImageView>(R.id.btnlinkedinC)
             val til = view.findViewById<TextInputLayout>(R.id.usuarioTil)
             val tv = view.findViewById<TextView>(R.id.redTv)
             val guardar = view.findViewById<Button>(R.id.guardarred)
@@ -225,6 +226,19 @@ class DisenioTarjeta : AppCompatActivity() {
                 tv.visibility = View.VISIBLE
                 tv.text = getString(R.string.Link)
                 red = 4
+            }
+            linkedinC.setOnClickListener{
+                til.visibility = View.VISIBLE
+                tv.visibility = View.VISIBLE
+                tv.text = getString(R.string.LinkC)
+                red = 5
+            }
+
+            site.setOnClickListener{
+                til.visibility = View.VISIBLE
+                tv.visibility = View.VISIBLE
+                tv.text = getString(R.string.site)
+                red = 6
             }
 
             guardar.setOnClickListener{
@@ -268,8 +282,23 @@ class DisenioTarjeta : AppCompatActivity() {
                             Toast.makeText(this, "Ya has añadido esa red.", Toast.LENGTH_SHORT).show()
                         }
 
-                    }else ->{
-
+                    }5->{
+                        if (redes[4] == "0"){
+                            dialog.dismiss()
+                            redes[4] = et.text.toString()
+                            addRed(5)
+                        }else{
+                            Toast.makeText(this, "Ya has añadido esa red.", Toast.LENGTH_SHORT).show()
+                        }
+                    }6->{
+                        if (redes[5] == "0"){
+                            dialog.dismiss()
+                            redes[5] = et.text.toString()
+                            addRed(6)
+                        }else{
+                            Toast.makeText(this, "Ya has añadido esa red.", Toast.LENGTH_SHORT).show()
+                        }
+                    }else->{
                     }
                     }
                 }
@@ -278,7 +307,6 @@ class DisenioTarjeta : AppCompatActivity() {
         //listener para cambiar el email
         binding.emailTv.setOnClickListener {
             val view = View.inflate(this@DisenioTarjeta, R.layout.mail_dialog, null)
-
             val builder = AlertDialog.Builder(this@DisenioTarjeta)
             builder.setView(view)
             val dialog = builder.create()
@@ -288,15 +316,12 @@ class DisenioTarjeta : AppCompatActivity() {
             val windowP = window?.attributes
             windowP?.gravity = Gravity.TOP
             window?.attributes = windowP
-
             val et = view.findViewById<EditText>(R.id.mailEt)
             val btnGuardar = view.findViewById<Button>(R.id.guardarnombre)
-
             btnGuardar.setOnClickListener {
                 val email = et.text
                 if(et.text.isEmpty()){
                     binding.emailTv.text = "Edita tu Email"
-
                 }else {
                     if (Patterns.EMAIL_ADDRESS.matcher(et.text.toString()).matches()){
                         binding.emailTv.text = email
@@ -577,14 +602,19 @@ class DisenioTarjeta : AppCompatActivity() {
         }4->{
             iv.setImageResource(R.drawable.linkedin)
             iv.contentDescription = getString(R.string.Link)
+        }5->{
+            iv.setImageResource(R.drawable.linkedin_corporativo)
+            iv.contentDescription = getString(R.string.LinkC)
+        }6->{
+            iv.setImageResource(R.drawable.web)
+            iv.contentDescription = getString(R.string.site)
         }else->{
 
         }
         }
-        for (i in 0..3){
-            println(redes[i])
+        for(i in redes){
+            println(i)
         }
-
     }
 
     private fun removeRed(view: View){
@@ -597,11 +627,15 @@ class DisenioTarjeta : AppCompatActivity() {
             redes[2] = "0"
         }else if(iv.contentDescription == getString(R.string.Link)){
             redes[3] = "0"
+        }else if(iv.contentDescription== getString(R.string.LinkC)){
+            redes[4] = "0"
+        }else if(iv.contentDescription== getString(R.string.site)){
+            redes[5] = "0"
         }
         binding.layoutRedes.removeView(view)
         numRdes -= 1
-        for (i in 0..3){
-            println(redes[i])
+        for(i in redes){
+            println(i)
         }
     }
 
@@ -653,7 +687,6 @@ class DisenioTarjeta : AppCompatActivity() {
             conn.doInput = true
             conn.setRequestProperty("Content-Type" , "application/json")
             conn.setRequestProperty("Accept", "application/json")
-
             val datos = StringBuffer()
             BufferedReader(InputStreamReader(withContext(Dispatchers.IO) {
                 conn.getInputStream()

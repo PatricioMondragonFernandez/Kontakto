@@ -91,7 +91,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layoutDisenio1"
             android:layout_width="0dp"
-            android:layout_height="400dp"
+            android:layout_height="300dp"
             android:background="@drawable/fondo_layout"
             app:layout_constraintTop_toBottomOf="@id/ivfondo"
             app:layout_constraintEnd_toEndOf="@id/guideline4"
@@ -173,6 +173,7 @@
                     android:id="@+id/layoutRedes"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginStart="10dp"
                     android:orientation="horizontal"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -185,7 +186,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    app:layout_constraintGuide_percent="0.82" />
+                    app:layout_constraintGuide_percent="0.87" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -223,7 +224,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.70" />
+                app:layout_constraintGuide_percent="0.80" />
 
 
             <androidx.constraintlayout.widget.Guideline
@@ -231,7 +232,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.83"/>
+                app:layout_constraintGuide_percent="0.81"/>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -324,14 +325,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.10" />
+                app:layout_constraintGuide_percent="0.05" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.90" />
+                app:layout_constraintGuide_percent="0.95" />
 
             <TextView
                 android:id="@+id/acercaTv"
@@ -341,7 +342,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginTop="10dp"
                 android:text="@string/acerca"
-                android:textSize="25sp"
+                android:textSize="17sp"
                 app:layout_constraintStart_toStartOf="@id/guideline15" />
 
             <TextView
@@ -380,7 +381,7 @@
                 android:layout_marginBottom="40dp"
                 android:text="@string/aniadecertificacion"
                 android:textColor="@color/black"
-                android:textSize="22sp"
+                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="@id/guideline26"
                 app:layout_constraintTop_toTopOf="parent" />
 

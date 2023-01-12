@@ -57,8 +57,8 @@
         
         <ImageView
             android:id="@+id/btnface"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:src="@drawable/face"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ingresaRedTv"
@@ -67,8 +67,8 @@
 
         <ImageView
             android:id="@+id/btnig"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:src="@drawable/ig"
             app:layout_constraintStart_toEndOf="@+id/btnface"
             app:layout_constraintEnd_toStartOf="@id/btntwitter"
@@ -76,9 +76,9 @@
             android:layout_marginTop="10dp"/>
         <ImageView
             android:id="@+id/btntwitter"
-            android:layout_width="60dp"
+            android:layout_width="40dp"
             android:src="@drawable/twitter"
-            android:layout_height="60dp"
+            android:layout_height="40dp"
             android:scaleType="fitXY"
             app:layout_constraintEnd_toStartOf="@+id/btnlinkedin"
             app:layout_constraintStart_toEndOf="@+id/btnig"
@@ -88,13 +88,34 @@
 
         <ImageView
             android:id="@+id/btnlinkedin"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:src="@drawable/linkedin"
             app:layout_constraintStart_toEndOf="@+id/btntwitter"
+            app:layout_constraintEnd_toStartOf="@id/btnlinkedinC"
+            app:layout_constraintTop_toBottomOf="@+id/ingresaRedTv"
+            android:layout_marginTop="10dp"/>
+        <ImageView
+            android:id="@+id/btnlinkedinC"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/linkedin_corporativo"
+            app:layout_constraintStart_toEndOf="@+id/btnlinkedin"
+            app:layout_constraintEnd_toStartOf="@id/btnSite"
+            app:layout_constraintTop_toBottomOf="@+id/ingresaRedTv"
+            android:layout_marginTop="10dp"/>
+
+        <ImageView
+            android:id="@+id/btnSite"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/web"
+            app:layout_constraintStart_toEndOf="@+id/btnlinkedinC"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ingresaRedTv"
             android:layout_marginTop="10dp"/>
+
+
         <TextView
             android:id="@+id/redTv"
             android:layout_width="wrap_content"

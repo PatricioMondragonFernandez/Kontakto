@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.ColorInt
@@ -71,6 +72,7 @@ class recyclerviewColoresDialog : DialogFragment() {
         val infoEmpresaTv = activity?.findViewById<TextView>(R.id.infoEmpresatv)
         val certTv = activity?.findViewById<TextView>(R.id.certTv)
         val layoutRedesC = activity?.findViewById<ConstraintLayout>(R.id.layoutRedesC)
+        val aniadered = activity?.findViewById<ImageButton>(R.id.aniadeRed)
 
         fondoGrande?.setBackgroundColor(Color.parseColor(colores.color2))
         fondoLogo?.setBackgroundColor(Color.parseColor(colores.color1))
@@ -93,6 +95,7 @@ class recyclerviewColoresDialog : DialogFragment() {
         infoEmpresaTv?.setTextColor(Color.parseColor(colores.color6))
         certTv?.setTextColor(Color.parseColor(colores.color4))
         layoutRedesC?.setBackgroundColor(color2)
+        aniadered?.imageTintList = getColorStateList(requireContext(), R.color.white)
 
 
 
