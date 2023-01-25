@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:id="@+id/nombreCert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

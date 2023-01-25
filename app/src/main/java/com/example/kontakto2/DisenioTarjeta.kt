@@ -27,9 +27,13 @@ import kotlinx.coroutines.*
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.BufferedReader
+import java.io.ByteArrayOutputStream
 import java.io.InputStreamReader
+import java.io.OutputStreamWriter
+import java.net.HttpURLConnection
 import java.net.URL
 import javax.net.ssl.HttpsURLConnection
+import android.util.Base64
 
 
 class DisenioTarjeta : AppCompatActivity() {
@@ -41,7 +45,7 @@ class DisenioTarjeta : AppCompatActivity() {
     var certificaciones = mutableListOf<String>("null")
     var listaColores = mutableListOf<colores>()
     var listaImagenes = mutableListOf<imagenes>()
-    var arrayDatos = arrayOf("", "", "", "", "","", "", "","", "", "", "", "", "", "", "","","","","","")
+    var arrayDatos = arrayOf("","","","","","","","","","","","","","","","","","","","","","","","","","","")
     val dialogImagenes = recyclerviewDialog()
     var numCert = 0
     val dialogCertificaciones = recyclerViewCertDialog()
@@ -57,6 +61,12 @@ class DisenioTarjeta : AppCompatActivity() {
                         override fun onSuccess(bitmap: Bitmap) {
                             binding.ivfoto.setImageBitmap(bitmap)
                             binding.tvFoto.visibility = View.GONE
+                            val baos = ByteArrayOutputStream()
+                            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+                            val b = baos.toByteArray()
+                            val encodedImage = Base64.encodeToString(b, Base64.DEFAULT)
+                            arrayDatos[8] = encodedImage
+
                         }
 
                         override fun onFailed(exception: Exception) {
@@ -78,6 +88,7 @@ class DisenioTarjeta : AppCompatActivity() {
 
                         override fun onFailed(exception: Exception) {
                             //exception
+                            Toast.makeText(DisenioTarjeta(), "Ocurrió un error cargando la foto.", Toast.LENGTH_SHORT).show()
                         }
                     }
                 )
@@ -104,7 +115,6 @@ class DisenioTarjeta : AppCompatActivity() {
 
         binding.ivfoto.setOnClickListener {
             pickMedia.launch(PickVisualMediaRequest(PickVisualMedia.ImageOnly))
-
         }
         //LLamada para recibir los colores
         llamadaApi()
@@ -130,7 +140,7 @@ class DisenioTarjeta : AppCompatActivity() {
             windowP?.gravity = Gravity.TOP
             window?.attributes = windowP
 
-            val btnGuardar =view.findViewById<Button>(R.id.guardarnombre)
+            val btnGuardar = view.findViewById<Button>(R.id.guardarnombre)
             val et = view.findViewById<EditText>(R.id.nombreEt)
 
             btnGuardar.setOnClickListener {
@@ -139,6 +149,13 @@ class DisenioTarjeta : AppCompatActivity() {
                     binding.editaNombreTv.text = "EDITA TU NOMBRE"
                 }else{
                     binding.editaNombreTv.text = nombre
+                    val delim = " "
+                    val nombre = binding.editaNombreTv.text
+                    val nombreCompleto = nombre.split(delim)
+                    val primerNombre = nombreCompleto[0]
+                    val apellido = nombreCompleto[1]
+                    arrayDatos[1] = primerNombre
+                    arrayDatos[2] = apellido
                 }
                 dialog.dismiss()
             }
@@ -147,7 +164,7 @@ class DisenioTarjeta : AppCompatActivity() {
         binding.editaPuestotv.setOnClickListener {
             val view = View.inflate(this@DisenioTarjeta, R.layout.dialog_puesto, null)
             val builder = AlertDialog.Builder(this@DisenioTarjeta)
-            builder.setView(view)
+            builder.setView(view )
             val dialog = builder.create()
             dialog.show()
             dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
@@ -250,7 +267,12 @@ class DisenioTarjeta : AppCompatActivity() {
                             dialog.dismiss()
                             if (redes[0] == "0"){
                                 redes[0] = et.text.toString()
+                                val face = et.text.toString()
                                 addRed(1)
+                                arrayDatos[9] = "https://www.facebook.com/$face"
+                                for (i in arrayDatos){
+                                    println(i)
+                                }
                                 dialog.dismiss()
                             }else{
                                 Toast.makeText(this, "Ya has añadido esa red.", Toast.LENGTH_SHORT).show()
@@ -398,6 +420,8 @@ class DisenioTarjeta : AppCompatActivity() {
                     }
                 }
                 binding.celularTv.text = celular2
+                arrayDatos[5] = celular2
+
                 dialog.dismiss()
             }
         }
@@ -444,6 +468,7 @@ class DisenioTarjeta : AppCompatActivity() {
                     }
                 }
                 binding.telefonoTv.text = telefono2
+                arrayDatos[4] = telefono2
                 dialog.dismiss()
             }
         }
@@ -471,6 +496,7 @@ class DisenioTarjeta : AppCompatActivity() {
 
                 }else {
                     binding.direccionTv.text = direccion
+                    arrayDatos[6] = direccion.toString()
                 }
                 dialog.dismiss()
             }
@@ -557,6 +583,9 @@ class DisenioTarjeta : AppCompatActivity() {
             btnNo.setOnClickListener {
                 dialog.dismiss()
             }
+        }
+        binding.guardarTarjeta.setOnClickListener {
+            Toast.makeText(this, "La tarjeta ha sido guardada exitosamente", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -707,4 +736,39 @@ class DisenioTarjeta : AppCompatActivity() {
         }
         runBlocking { job.join() }
     }
+
+    /*private fun guardarTarjeta(){
+        val job = CoroutineScope(Dispatchers.IO).launch {
+            val objeto = JSONObject()
+            println(objeto)
+            val url = URL("http://actinseguro.com/booking/abkcom007.aspx")
+            val postData = objeto.toString()
+
+            val conn = url.openConnection() as HttpURLConnection
+            conn.doInput = true
+            conn.doOutput = true
+            conn.setRequestProperty("Content-Type" , "application/json")
+            conn.setRequestProperty("Accept", "application/json")
+            conn.setRequestProperty("Content-Length", postData.length.toString())
+
+            val outputStreamWriter = OutputStreamWriter(conn.getOutputStream())
+            outputStreamWriter.write(postData)
+            outputStreamWriter.flush()
+
+            val datos = StringBuffer()
+            BufferedReader(InputStreamReader(conn.getInputStream())).use { inp ->
+                var line: String?
+                while (inp.readLine().also { line = it } != null) {
+                    println(line)
+                    datos.append(line)
+                }
+            }
+            val respuesta = datos.toString()
+            val jsonRespuesta = JSONObject(respuesta)
+            val respuestaArray = jsonRespuesta.getJSONArray("RESPONSE")
+            val objetoArray = respuestaArray.getJSONObject(0)
+            msg = objetoArray.getString("MSG")
+        }
+        runBlocking { job.join() }
+    }*/
 }

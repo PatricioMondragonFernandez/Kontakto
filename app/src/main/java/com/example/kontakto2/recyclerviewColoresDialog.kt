@@ -73,6 +73,7 @@ class recyclerviewColoresDialog : DialogFragment() {
         val certTv = activity?.findViewById<TextView>(R.id.certTv)
         val layoutRedesC = activity?.findViewById<ConstraintLayout>(R.id.layoutRedesC)
         val aniadered = activity?.findViewById<ImageButton>(R.id.aniadeRed)
+        val aniadeCert = activity?.findViewById<ImageButton>(R.id.aniadeCert)
 
         fondoGrande?.setBackgroundColor(Color.parseColor(colores.color2))
         fondoLogo?.setBackgroundColor(Color.parseColor(colores.color1))
@@ -96,6 +97,7 @@ class recyclerviewColoresDialog : DialogFragment() {
         certTv?.setTextColor(Color.parseColor(colores.color4))
         layoutRedesC?.setBackgroundColor(color2)
         aniadered?.imageTintList = getColorStateList(requireContext(), R.color.white)
+        aniadeCert?.imageTintList = getColorStateList(requireContext(), R.color.white)
 
 
 

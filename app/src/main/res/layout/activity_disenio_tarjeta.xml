@@ -57,8 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.62" />
-
+            app:layout_constraintGuide_percent="0.65" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline2"
@@ -125,16 +124,15 @@
 
             <ImageView
                 android:id="@+id/tuLogoiv"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginTop="10dp"
                 android:scaleType="fitCenter"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/guidelinefoto"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/guideline9"
                 app:layout_constraintBottom_toBottomOf="@id/guideline10"
-                android:layout_marginStart="15dp"
-                android:layout_marginEnd="15dp"/>
+                android:layout_marginStart="15dp"/>
             <TextView
                 android:id="@+id/tuLogoTv"
                 android:layout_width="wrap_content"
@@ -143,9 +141,16 @@
                 android:text="@string/logo"
                 app:layout_constraintTop_toTopOf="@id/guideline9"
                 app:layout_constraintBottom_toBottomOf="@id/guideline10"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/tuLogoiv"
                 app:layout_constraintStart_toStartOf="parent"
                 android:textSize="25sp"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelinefoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.75" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layoutRedesC"
