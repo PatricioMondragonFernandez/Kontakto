@@ -48,6 +48,7 @@
             android:layout_height="wrap_content"
             android:text="Ingresa tu direccion"
             android:maxLines="2"
+            android:textColor="@color/black"
             android:gravity="center"
             android:autoSizeTextType="uniform"
             app:layout_constraintEnd_toEndOf="parent"

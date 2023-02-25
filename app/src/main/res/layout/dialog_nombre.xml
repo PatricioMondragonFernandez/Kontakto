@@ -49,6 +49,7 @@
             android:text="Ingresa tu nombre y apellido"
             android:maxLines="1"
             android:gravity="center"
+            android:textColor="@color/black"
             android:autoSizeTextType="uniform"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

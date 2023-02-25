@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.buttonmain.setOnClickListener {
-            startActivity(Intent(this, DisenioTarjeta::class.java))
+            startActivity(Intent(this, CreacionDeUsuario::class.java))
         }
 
 

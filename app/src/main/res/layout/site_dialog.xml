@@ -48,6 +48,7 @@
             android:layout_height="wrap_content"
             android:text="Ingresa tu Sitio Web"
             android:gravity="center"
+            android:textColor="@color/black"
             android:autoSizeTextType="uniform"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

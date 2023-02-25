@@ -25,5 +25,6 @@
     <string name="aniadecertificacion"><b>PREMIOS Y CERTIFICACIONES</b></string>
     <string name="quitarcert">¿Quitar Certificaciones?</string>
     <string name="guardarTarjeta">Guardar Tarjeta</string>
+    <string name="crearusuario"><b>Creación de usuario</b></string>
 
 </resources>

@@ -23,17 +23,21 @@ import android.util.Base64
 class recyclerviewDialog: DialogFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        //Se inicializa el dialog con el recycler view de las imagenes de fondo
         val view = inflater.inflate(R.layout.dialog_foto_fondo, container)
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerViewI)
         recyclerView.layoutManager = GridLayoutManager(context, 2)
         recyclerView.setHasFixedSize(true)
+        //Se le añade la lista de imagenes recibida en DisenioTarjeta y se le pasa la funcion on item selected
         recyclerView.adapter = ImagenAdapter((activity as? DisenioTarjeta)!!.listaImagenes, {onItemSelected(it)})
         return view
     }
 
     fun onItemSelected(imagen: imagenes){
+        //Se inicializa el image vie en el que se va a poner la imagen clickeada
         val ivFondo = activity?.findViewById<ImageView>(R.id.ivfondo)
         val src = imagen.imagen
+        //Se añade la imagen
         if (ivFondo != null) {
             Glide.with(ivFondo.context).load(src).into(ivFondo)
         }

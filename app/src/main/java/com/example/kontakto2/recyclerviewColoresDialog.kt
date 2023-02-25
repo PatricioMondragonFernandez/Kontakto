@@ -26,22 +26,17 @@ import java.lang.Integer.parseInt
 class recyclerviewColoresDialog : DialogFragment() {
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        //Se crea el dialog con el recycler view de colores y se muestra
         val view = inflater.inflate(R.layout.recycler_view_colores, container)
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerViewC)
         recyclerView.layoutManager = GridLayoutManager(context, 2)
         recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        //Se le añade la lista de colores recibida en la activity DisenioTarjeta y se le pasa la funcion onItemSelected
         recyclerView.adapter = Coloresdapter((activity as? DisenioTarjeta)!!.listaColores, {onItemSelected(it)})
         return view
     }
 
-    fun getRgbFromHex(hex: String): List<Int> {
-        val initColor = Color.parseColor(hex)
-        val r = Color.red(initColor)
-        val g = Color.green(initColor)
-        val b = Color.blue(initColor)
-        return listOf(r,g,b)
-    }
-
+    //Para obtener un color un poco mas obscuro que va en la barrita de las redes sociales
     @ColorInt fun darkenColor(@ColorInt color: Int): Int {
         return Color.HSVToColor(FloatArray(3).apply {
             Color.colorToHSV(color, this)
@@ -56,6 +51,7 @@ class recyclerviewColoresDialog : DialogFragment() {
         val color2 = darkenColor(color1)
         println(color1)
         println(color2)
+        //Se inicializan todos los elementos del activity DisenioTarjeta que van a cambiar de color
         val fondoGrande = activity?.findViewById<ConstraintLayout>(R.id.backgroundAcTarjeta)
         val fondoLogo = activity?.findViewById<ConstraintLayout>(R.id.layoutDisenio1)
         val fondoAcerca = activity?.findViewById<ConstraintLayout>(R.id.acercadeLayout)
@@ -74,7 +70,7 @@ class recyclerviewColoresDialog : DialogFragment() {
         val layoutRedesC = activity?.findViewById<ConstraintLayout>(R.id.layoutRedesC)
         val aniadered = activity?.findViewById<ImageButton>(R.id.aniadeRed)
         val aniadeCert = activity?.findViewById<ImageButton>(R.id.aniadeCert)
-
+        //Se les añade el color indicado
         fondoGrande?.setBackgroundColor(Color.parseColor(colores.color2))
         fondoLogo?.setBackgroundColor(Color.parseColor(colores.color1))
         fondoAcerca?.setBackgroundColor(Color.parseColor(colores.color3))
@@ -98,11 +94,6 @@ class recyclerviewColoresDialog : DialogFragment() {
         layoutRedesC?.setBackgroundColor(color2)
         aniadered?.imageTintList = getColorStateList(requireContext(), R.color.white)
         aniadeCert?.imageTintList = getColorStateList(requireContext(), R.color.white)
-
-
-
-
-
 
     }
 
