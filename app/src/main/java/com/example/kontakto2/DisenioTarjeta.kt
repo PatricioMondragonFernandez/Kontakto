@@ -826,7 +826,7 @@ class DisenioTarjeta : AppCompatActivity() {
     }
 
 
-    /*private fun guardarTarjeta(){
+    private fun guardarTarjeta(){
         val job = CoroutineScope(Dispatchers.IO).launch {
             val objeto = JSONObject()
             println(objeto)
@@ -856,8 +856,7 @@ class DisenioTarjeta : AppCompatActivity() {
             val jsonRespuesta = JSONObject(respuesta)
             val respuestaArray = jsonRespuesta.getJSONArray("RESPONSE")
             val objetoArray = respuestaArray.getJSONObject(0)
-            msg = objetoArray.getString("MSG")
         }
         runBlocking { job.join() }
-    }*/
+    }
 }
